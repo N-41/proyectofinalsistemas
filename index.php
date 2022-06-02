@@ -74,15 +74,18 @@ if($contadortabla > 0){
 
 	if($antesderound['cajasabiertas'] <= 0){ //un round ha terminado, pantalla 5
 		
-		echo "<form method='POST' action='oferta.php>";
-		echo "<div class='row'>";
-		echo "<div class='column1>";
-		echo "<input type='submit' name='Decision' id='Decision' value='0'></button>";
-		echo "</div><div class='column1>";
-		echo "<input type='submit' name='Decision' id='Decision' value='1'></button>";
-		echo "</div></form><div class='column2>";
-		echo "Round ".$antesderound[0]." has finished";
-		echo "</div></div>";
+		//echo "<div class='row'>";
+		//echo "<div class='column1>";
+		echo "<form method='POST' action='oferta.php'>";
+		echo "<button type='submit' name='Decision' value='0'>Accept</button>";
+		//echo "</form></div><div class='column1>";
+		//echo "</form>";
+		//echo "<form method='POST' action='oferta.php>";
+		echo "<button type='submit' name='Decision' value='1'>Reject</button>";
+		echo "</form>";
+		//echo "</form></div><div class='column2>";
+		echo "Round ".$antesderound['round']." has finished";
+		//echo "</div></div>";
 		
 
 	}
@@ -107,9 +110,11 @@ if($contadortabla > 0){
 		echo "<div class='column1'>";
 
 		while($row = mysqli_fetch_assoc($resultador3)){
-			if(mysqli_num_rows($conexion->query('Select * from regalos2 where id = '.$row['id'].';')) <= 0 && mysqli_num_rows($conexion->query('Select * from tomado where numeroderegalo = '.$row['id'].';')) <= 0) echo "<s>";
+			//if(mysqli_num_rows($conexion->query('Select * from regalos2 where newid = '.$row['ogid'].';')) <= 0) echo "<s>";
+			if(mysqli_num_rows($conexion->query('Select * from regalos2 where nombre = "'.$row['nombre'].'";')) <= 0 && mysqli_num_rows($conexion->query('Select * from tomado where nombre = "'.$row['nombre'].'";')) <= 0) echo "<s>";
 			echo $row['nombre'];
-			if(mysqli_num_rows($conexion->query('Select * from regalos2 where id = '.$row['id'].';')) <= 0 && mysqli_num_rows($conexion->query('Select * from tomado where numeroderegalo = '.$row['id'].';')) <= 0) echo "</s>";
+			if(mysqli_num_rows($conexion->query('Select * from regalos2 where nombre = "'.$row['nombre'].'";')) <= 0 && mysqli_num_rows($conexion->query('Select * from tomado where nombre = "'.$row['nombre'].'";')) <= 0 ) echo "</s>";
+			//if(mysqli_num_rows($conexion->query('Select * from regalos2 where newid = '.$row['ogid'].';')) <= 0) echo "</s>";
 			echo "<br>";
 		}
 		
@@ -117,17 +122,20 @@ if($contadortabla > 0){
 
 	}
 }
+
+
+}
+
 else{ //pagina 6
 	$regalotomado = mysqli_fetch_assoc($conexion->query('Select * from tomado limit 1;'));
 	$conexion->query('Delete from regalos2;');
 	echo "<div class='row'><div class='column1'>";
 	echo "<button onclick='reveal();'>Reveal</button>";
 	echo "<p id='p1'></p>";
-	echo "<script>function reveal(){document.getElementById('p1').innerHTML = '".$regalotomado[1]."';}</script></div>";
+	echo "<script>function reveal(){document.getElementById('p1').innerHTML = '".$regalotomado['nombre']."';}</script></div>";
 	echo "<div class='column2'>";
 	echo "<form action='index.php' method='POST'><button type='submit' name='submit'>Finish</button></form>";
 	echo "</div></div>";
-}
-
+	$conexion->query('Delete from tomado;');
 }
 ?>
