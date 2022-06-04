@@ -32,6 +32,11 @@ CREATE table `contador`(
 primary key (round)
 )engine=Innodb default charset=utf8;
 
+create table `abierta`(
+`nombre` varchar(255),
+primary key (`nombre`)
+)engine=Innodb default charset=utf8;
+
 insert into regalos1 (nombre) values(
 '60 dollars for genshin gems'),
 ('30 dollars for genshin gems'),

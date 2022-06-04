@@ -15,5 +15,5 @@ $consulta_sql = 'Delete from regalos2 where id = ';
 $consulta_sql .= $giftid;
 $consulta_sql .= ';';
 $conexion->query($consulta_sql);
-header('Location: index.php');
+header('Location: game.php');
 ?>

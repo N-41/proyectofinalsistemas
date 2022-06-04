@@ -7,5 +7,5 @@ $consulta_sql .= $giftid;
 $consulta_sql .= ';';
 $conexion->query($consulta_sql);
 if(mysqli_num_rows($conexion->query('Select * from regalos2')) <= 0) $conexion->query('Delete from contador');
-header('Location: index.php');
+header('Location: game.php');
 ?>

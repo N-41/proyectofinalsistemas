@@ -8,5 +8,5 @@ if($take == '0'){
 if($take == '1'){
 	$conexion->query('Delete from contador where cajasabiertas = 0');
 }
-header('Location: index.php');
+header('Location: game.php');
 ?>
