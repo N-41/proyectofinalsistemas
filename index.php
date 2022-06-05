@@ -21,15 +21,15 @@ $tablas = $conexion->query("Show tables where
 (Tables_in_birthday not like 'abierta');");
 
 while($row = mysqli_fetch_assoc($tablas)){
-	echo "<form method='POST' action='enter.php'><button type='submit' name='Enter' value='".$row['Tables_in_birthday']."'>Enter</button>";
-	echo "<form method='POST' action='delete.php'><button type='submit' name='Delete' value='".$row['Tables_in_birthday']."'>Delete</button>";
+	echo "<form method='POST' action='enter.php'><button type='submit' name='Enter' value='".$row['Tables_in_birthday']."'>Enter</button></form>";
+	echo "<form method='POST' action='delete.php'><button type='submit' name='Delete' value='".$row['Tables_in_birthday']."'>Delete</button></form>";
 	$regalosejemplo = $conexion->query('Select * from '.$row['Tables_in_birthday'].' limit 3;');
 	echo '| '.$row['Tables_in_birthday'].' ';
 	while($row2 = mysqli_fetch_assoc($regalosejemplo)){
 		
 		echo '| '.$row2['nombre'].' ';
 	}
-	echo '<br>';
+	echo '<br><br><br>';
 }
 ?>
 

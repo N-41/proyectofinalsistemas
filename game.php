@@ -27,7 +27,7 @@ if($countr2 <= 0 && $countt <= 0){ //pagina 1, el juego todavia no empieza
 echo "
 <form method='POST' action='agregarregalo.php'>
 <input type='text' id='nuevoregalo' name='nuevoregalo'>
-<input type='submit' value='Subir' name='Subir'>
+<input type='submit' value='Upload' name='Upload'>
 </form>
 <br>
 ";
@@ -41,7 +41,7 @@ echo "
 
 echo "
 <form method='POST' action='empezarjuego.php'>
-<input type='submit' value='Empezar' name='Empezar'>
+<input type='submit' value='Start!' name='Start!'>
 </form>
 ";
 
@@ -50,7 +50,7 @@ echo "<form method='POST' action='borrarregalo1.php'>";
 if($countr1 > 0){
 	while($row = mysqli_fetch_assoc($resultador1)){
 		echo $row['nombre'];
-		echo "<button type='submit' value='".$row['id']."' name='Borrar' id='Borrar'>Borrar</button>";
+		echo "<button type='submit' value='".$row['id']."' name='Borrar' id='Borrar'>Delete</button>";
 		echo "<br>";
 	}
 }
@@ -76,8 +76,8 @@ echo "</form>";
 
 
 else if($countr2 > 0 && $countt > 0){
-$contadortabla = mysqli_num_rows($conexion->query('Select * from contador limit 1;'));
-if($contadortabla > 0){
+	$contadortabla = mysqli_num_rows($conexion->query('Select * from contador limit 1;'));
+	if($contadortabla > 0){
 	$antesderound = mysqli_fetch_assoc($conexion->query('Select * from contador limit 1;'));
 	$regalotomado = mysqli_fetch_assoc($conexion->query('Select * from tomado limit 1;'));
 
@@ -137,7 +137,7 @@ if($contadortabla > 0){
 
 else{ //pagina 6
 	$regalotomado = mysqli_fetch_assoc($conexion->query('Select * from tomado limit 1;'));
-	$conexion->query('Delete from regalos2;');
+	//$conexion->query('Delete from regalos2;');
 	echo "<div class='row'><div class='column1'>";
 	echo "<button onclick='reveal();'>Reveal</button>";
 	echo "<p id='p1'></p>";

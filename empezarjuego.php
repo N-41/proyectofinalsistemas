@@ -8,6 +8,7 @@ $temp1 = 1;
 $giftcount = mysqli_num_rows($resultado);
 $contadorcount = mysqli_num_rows($conexion->query('Select * from contador'));
 $tempcount = 1;
+$conexion->query('Delete from regalos3');
 
 	while($row = mysqli_fetch_assoc($resultado)){
 		$conexion->query('Insert into regalos2 values('.$tempcount.',"'.$row['nombre'].'",'.$row['id'].');');
