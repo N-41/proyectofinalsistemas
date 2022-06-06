@@ -1,6 +1,7 @@
 # proyectofinalsistemas
 un programa que pueda reproducir el juego "what's in the box". Las reglas del juego son las siguientes:
 
+.
 
 -Se tienen 26 cajas, todas con objetos distintos
 
@@ -22,6 +23,7 @@ un programa que pueda reproducir el juego "what's in the box". Las reglas del ju
 
 -Si se abren todas las cajas y el recibidor no aceptó ninguna oferta, el recibidor se queda con la caja
 
+.
 
 La base de datos viene con una tabla de ejemplo, con 26 regalos adicionales. 
 
@@ -39,6 +41,7 @@ Y oprimir "Accept" para aceptar su oferta y acabar el juego, o "Reject" para con
 
 Al finalizar el juego, puedes revelar el regalo final al oprimir el botón "Reveal" y terminar al oprimir "Finish"
 
+.
 
 Tablas necesarias:
 
@@ -52,6 +55,7 @@ contador - Cuenta los rounds del juego. Cuando no hay registros en contador pero
 
 abierta - contiene el nombre de la tabla
 
+.
 
 Estructura:
 
@@ -81,6 +85,7 @@ abierta
 `nombre` varchar(255),
 primary key (`nombre`)
 
+.
 
 Create: Puedes crear nuevas listas de regalos en index
 
