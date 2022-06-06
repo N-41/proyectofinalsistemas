@@ -93,7 +93,7 @@ else if($countr2 > 0 && $countt > 0){
 		echo "<button type='submit' name='Decision' value='1'>Reject</button>";
 		echo "</form>";
 		//echo "</form></div><div class='column2>";
-		echo "Round ".$antesderound['round']." has finished";
+		echo "Round ".$antesderound['round']." has finished. It's time to make an offer";
 		//echo "</div></div>";
 		
 
